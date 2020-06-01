@@ -25,6 +25,8 @@ class STRLIter:
 class STRL:
   #making __strl__ dir
   def __init__(self,file_name,mode):
+    if file_name[0:8] == "__temp__":
+      raise ValueError("file name cannot start with '__temp__'")
     #create __sllist__ dir if not exist
     dir_existence = os.path.exists('./__strl__')
     if dir_existence == False:
@@ -142,7 +144,7 @@ class STRL:
     n = 0
     with open("./__strl__/"+self._filename,mode='r', encoding='utf-8') as read_f:
       #create temporary file
-      with open("./__strl__/"+"temp_"+self._filename,mode='a', encoding='utf-8') as write_f:
+      with open("./__strl__/"+"__temp__"+self._filename,mode='a', encoding='utf-8') as write_f:
         for line in read_f:
           if n == line_num:
             #if line_num matches line number n(starts 0), write given set_item
@@ -165,7 +167,7 @@ class STRL:
 
 
     #remove temporary file and copy to original
-    shutil.move("./__strl__/"+"temp_"+self._filename,"./__strl__/"+self._filename)
+    shutil.move("./__strl__/"+"__temp__"+self._filename,"./__strl__/"+self._filename)
 
   #insert to the specific line
   def insert(self,line_num,set_item):
@@ -175,7 +177,7 @@ class STRL:
     n = 0
     with open("./__strl__/"+self._filename,mode='r', encoding='utf-8') as read_f:
       #create temporary file
-      with open("./__strl__/"+"temp_"+self._filename,mode='a', encoding='utf-8') as write_f:
+      with open("./__strl__/"+"__temp__"+self._filename,mode='a', encoding='utf-8') as write_f:
         for line in read_f:
           if n == line_num:
             #if line_num matches line number n(starts 0), write given set_item
@@ -199,7 +201,7 @@ class STRL:
           write_f.write(write_item + "\n")
 
     #remove temporary file and copy to original
-    shutil.move("./__strl__/"+"temp_"+self._filename,"./__strl__/"+self._filename)
+    shutil.move("./__strl__/"+"__temp__"+self._filename,"./__strl__/"+self._filename)
 
   def remove(self, line_num):
     if line_num < 0:
@@ -207,7 +209,7 @@ class STRL:
     n = 0
     with open("./__strl__/"+self._filename,mode='r', encoding='utf-8') as read_f:
       #create temporary file
-      with open("./__strl__/"+"temp_"+self._filename,mode='a', encoding='utf-8') as write_f:
+      with open("./__strl__/"+"__temp__"+self._filename,mode='a', encoding='utf-8') as write_f:
         for line in read_f:
           if n == line_num:
             continue
@@ -216,7 +218,7 @@ class STRL:
             write_f.write(line)
           n += 1
     #remove temporary file and copy to original
-    shutil.move("./__strl__/"+"temp_"+self._filename,"./__strl__/"+self._filename)
+    shutil.move("./__strl__/"+"__temp__"+self._filename,"./__strl__/"+self._filename)
 
   @classmethod
   def show_files(cls):
