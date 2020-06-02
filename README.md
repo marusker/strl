@@ -48,14 +48,16 @@ print(filtered) # [{'name': 'bob', 'age': 21}, {'name': 'linda', 'age': 19}]
 #
 ppl.set(1, {"name":"john","age":45})
 print(ppl.get_list()) #[{'name': 'bob', 'age': 21}, {'name': 'john', 'age': 45}, {'name': 'linda', 'age': 19}]
-ppl.remove(2)
-print(ppl.get_list()) #[{'name': 'bob', 'age': 21}, {'name': 'john', 'age': 45}]
+
+#give tuple to remove
+ppl.remove((0,2)
+print(ppl.get_list()) ##[{'name': 'john', 'age': 45}]
 
 ppl.append({"name":"nana","age":49})
-print(ppl.get_list()) #[{'name': 'bob', 'age': 21}, {'name': 'john', 'age': 45}, {'name': 'nana', 'age': 49}]
+print(ppl.get_list()) #[{'name': 'john', 'age': 45}, {'name': 'nana', 'age': 49}]
 
 ppl.insert(1, {"name":"mike","age":30})
-print(ppl.get_list()) #[{'name': 'bob', 'age': 21}, {'name': 'mike', 'age': 30}, {'name': 'john', 'age': 45}, {'name': 'nana', 'age': 49}]
+print(ppl.get_list()) #[{'name': 'john', 'age': 45}, {'name': 'mike', 'age': 30}, {'name': 'nana', 'age': 49}]
 
 ```
 

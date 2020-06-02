@@ -203,15 +203,13 @@ class STRL:
     #remove temporary file and copy to original
     shutil.move("./__strl__/"+"__temp__"+self._filename,"./__strl__/"+self._filename)
 
-  def remove(self, line_num):
-    if line_num < 0:
-      raise ValueError("line number cannnot be negative.")
+  def remove(self, line_num_tuple):
     n = 0
     with open("./__strl__/"+self._filename,mode='r', encoding='utf-8') as read_f:
       #create temporary file
       with open("./__strl__/"+"__temp__"+self._filename,mode='a', encoding='utf-8') as write_f:
         for line in read_f:
-          if n == line_num:
+          if n in line_num_tuple:
             write_f.write("")
           else:
             # keep the other lines same
@@ -222,12 +220,14 @@ class STRL:
 
   @classmethod
   def show_files(cls):
-    return os.listdir(path='./__strl__')
+    try:
+      files = os.listdir(path='./__strl__')
+    except FileNotFoundError:
+      return []
+    return files
 
   def delete(self):
     os.remove("./__strl__/"+self._filename)
-
-
 
 
 
