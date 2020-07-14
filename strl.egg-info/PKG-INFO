@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: strl
+Version: 1.2
+Summary: strl keeps list like data at disk storage file insted of memory
+Home-page: https://github.com/marusker/strl
+Author: marusker
+Author-email: marusker@pst.sakura.ne.jp
+License: MIT
+Description: strl is list like data storage. Compared to list, strl reduce memory usage and keeps the data after exit. Compared to sql strl is more easy and simple to use.
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.4
+Description-Content-Type: text/markdown

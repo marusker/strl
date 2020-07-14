@@ -25,6 +25,9 @@ import strl
 #mode w creates "people" file in "__stlist__" folder. if file exist, rewrite the file.
 ppl = strl.STRL("people",mode="w")
 
+#if you want, directory can be specified by directory argument.
+ppl_dir = strl.STRL("people",mode="w",directory="/Users/someone/Documents")
+
 #
 # add data
 #
